@@ -1,11 +1,5 @@
 "use client";
 
-import React from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { usePathname } from "next/navigation";
-import classnames from "classnames";
-import { useSession } from "next-auth/react";
 import {
   Avatar,
   Box,
@@ -14,6 +8,12 @@ import {
   Flex,
   Text,
 } from "@radix-ui/themes";
+import { Skeleton } from "@/app/components";
+import classnames from "classnames";
+import { useSession } from "next-auth/react";
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const NavBar = () => {
   return (
@@ -63,7 +63,7 @@ const NavLinks = () => {
 const AuthStatus = () => {
   const { status, data: session } = useSession();
 
-  if (status === "loading") return null;
+  if (status === "loading") return <Skeleton />;
 
   if (status === "unauthenticated")
     return (
