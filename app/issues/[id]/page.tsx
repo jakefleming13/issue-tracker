@@ -4,19 +4,22 @@ import { notFound } from "next/navigation";
 import EditIssueButton from "./EditIssueButton";
 import IssueDetails from "./IssueDetails";
 import DeleteIssueButton from "./DeleteIssueButton";
+import { cache } from "react";
 
 interface Props {
   params: { id: string };
 }
 
-const IssueDetailPage = async ({ params }: Props) => {
-  const issue = await prisma.issue.findUnique({
-    where: { id: parseInt(params.id) },
-  });
+const fetchUser = cache((issueId: number) =>
+  prisma.issue.findUnique({ where: { id: issueId } })
+);
 
-  if (!issue) {
-    notFound();
-  }
+const IssueDetailPage = async ({ params }: Props) => {
+  if (isNaN(parseInt(params.id))) notFound();
+
+  const issue = await fetchUser(parseInt(params.id));
+
+  if (!issue) notFound();
 
   return (
     <Grid columns={{ initial: "1", sm: "5" }} gap="5">
