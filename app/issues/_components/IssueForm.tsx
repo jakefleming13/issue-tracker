@@ -2,7 +2,7 @@
 
 import { issueSchema } from "@/app/createIssueSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Button, Callout, Spinner, TextField } from "@radix-ui/themes";
+import { Button, Callout, TextField } from "@radix-ui/themes";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -13,6 +13,7 @@ import ErrorMessage from "@/app/components/ErrorMessage";
 import { Issue } from "@prisma/client";
 import "easymde/dist/easymde.min.css";
 import SimpleMDE from "react-simplemde-editor";
+import Spinner from "@/app/components/Spinner";
 
 type IssueFormData = z.infer<typeof issueSchema>;
 
@@ -56,11 +57,18 @@ const IssueForm = ({ issue }: { issue?: Issue }) => {
       )}
 
       <form className="max-w-xl space-y-3" onSubmit={onSubmit}>
-        <TextField.Root
+        {/* <TextField.Root
           placeholder="Title"
           {...register("title")}
           defaultValue={issue?.title}
-        ></TextField.Root>
+        ></TextField.Root> */}
+        <TextField.Root>
+          <TextField.Input
+            defaultValue={issue?.title}
+            placeholder="Title"
+            {...register("title")}
+          />
+        </TextField.Root>
         <ErrorMessage>{errors.title?.message}</ErrorMessage>
         <Controller
           name="description"
