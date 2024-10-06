@@ -22,7 +22,12 @@ const NavBar = () => {
         <Flex justify="between" align="center">
           <Flex align="center" gap="3">
             <a href="/">
-              <Image src={"/newLogo.png"} alt="Logo" width="64" height="64" />
+              <Image
+                src={"/invertedLogo.png"}
+                alt="Logo"
+                width="64"
+                height="64"
+              />
             </a>
             <NavLinks />
           </Flex>
