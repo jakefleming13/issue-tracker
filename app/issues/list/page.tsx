@@ -49,7 +49,7 @@ const IssuesPage = async ({
     <div>
       <IssueActions />
 
-      <Table.Root variant="surface">
+      <Table.Root variant="surface" mb="2">
         <Table.Header>
           <Table.Row>
             {columns.map((column) => (
