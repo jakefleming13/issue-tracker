@@ -6,6 +6,7 @@ import { Issue, Status } from "@prisma/client";
 import NextLink from "next/link";
 import { ArrowUpIcon } from "@radix-ui/react-icons";
 import Pagination from "@/app/components/Pagination";
+import { Metadata } from "next";
 
 const IssuesPage = async ({
   searchParams,
@@ -100,5 +101,10 @@ const IssuesPage = async ({
 };
 
 export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = {
+  title: "Issue Tracker - Issue List",
+  description: "View all VolleyTracker issues",
+};
 
 export default IssuesPage;
