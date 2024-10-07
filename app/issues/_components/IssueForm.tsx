@@ -17,7 +17,13 @@ import Spinner from "@/app/components/Spinner";
 
 type IssueFormData = z.infer<typeof issueSchema>;
 
-const IssueForm = ({ issue }: { issue?: Issue }) => {
+const IssueForm = async ({
+  issue,
+  totalIssues,
+}: {
+  issue?: Issue;
+  totalIssues: number;
+}) => {
   const router = useRouter();
   const {
     register,
@@ -37,7 +43,9 @@ const IssueForm = ({ issue }: { issue?: Issue }) => {
       if (issue) {
         await axios.patch("/api/issues/" + issue.id, data);
       } else {
-        await axios.post("/api/issues", data);
+        if (totalIssues < 50) {
+          await axios.post("/api/issues", data);
+        }
       }
 
       router.push("/issues/list");

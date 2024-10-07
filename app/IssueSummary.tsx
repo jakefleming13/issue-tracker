@@ -9,7 +9,7 @@ interface Props {
   closed: number;
 }
 
-const IssueSummary = ({ open, inProgress, closed }: Props) => {
+const IssueSummary = async ({ open, inProgress, closed }: Props) => {
   const containers: { label: string; value: number; status: Status }[] = [
     { label: "Open Issues", value: open, status: "OPEN" },
     { label: "In Progress Issues", value: inProgress, status: "IN_PROGRESS" },

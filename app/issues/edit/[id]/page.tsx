@@ -20,7 +20,9 @@ const EditIssuePage = async ({ params }: Props) => {
 
   if (!issue) notFound();
 
-  return <IssueForm issue={issue} />;
+  const issueTotal = await prisma.issue.count();
+
+  return <IssueForm issue={issue} totalIssues={issueTotal} />;
 };
 
 export default EditIssuePage;
