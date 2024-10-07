@@ -23,7 +23,7 @@ const NavBar = () => {
           <Flex align="center" gap="3">
             <a href="/">
               <Image
-                src={"/invertedLogo.png"}
+                src={"/personalLogo.png"}
                 alt="Logo"
                 width="64"
                 height="64"
