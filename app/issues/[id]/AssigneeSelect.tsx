@@ -30,6 +30,7 @@ const AssigneeSelect = ({ issue }: { issue: Issue }) => {
       <Select.Root
         defaultValue={issue.assignedToUserId || "unassigned"}
         onValueChange={assignIssue}
+        disabled={false}
       >
         <Select.Trigger />
         <Select.Content>
