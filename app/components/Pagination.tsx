@@ -26,7 +26,7 @@ const Pagination = ({ itemCount, pageSize, currentPage }: Props) => {
 
   const changepage = (page: number) => {
     //Work around: incorrect type bug
-    const params = new URLSearchParams(searchParams);
+    const params = new URLSearchParams(Array.from(searchParams.entries()));
     params.set("page", page.toString());
     router.push("?" + params.toString());
   };
