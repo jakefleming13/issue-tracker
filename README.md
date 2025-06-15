@@ -23,11 +23,5 @@ The issue tracker was specifically designed to maintain and improve the performa
 - Manage feature requests: Organize and prioritize new features and enhancements that can further improve VolleyTracker’s functionality.
 - Monitor progress: Ensure that all issues and tasks are documented and assigned appropriately, making the development process more transparent and organized.
   
-## How to Use
-1. Log in: Visit the issue tracker app and log in using your Google account.
-2. Create an issue: Click "New Issue" and fill out the necessary details, such as title, description, priority, and assignee.
-3. Assign issues: Once created, issues can be assigned to team members with a priority level.
-4. Track issues: The dashboard provides an overview of all ongoing and resolved issues, helping you stay up to date with the development of VolleyTracker.
-
 ## License
 This project is licensed under the MIT License. See the LICENSE file for more details.
